@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jubarthi - Revolução no Marketing Médico | Chega de Fraude</title>
+    <meta name="description" content="Descubra por que 90% dos médicos são enganados com promessas de marketing inúteis. Livro + Planos completos de marketing médico com IA.">
+    <meta name="keywords" content="marketing médico, jubarthi, livro marketing médico, gestão tráfego médico, identidade visual médica">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Jubarthi - Revolução no Marketing Médico">
+    <meta property="og:description" content="Chega de Fraude no Marketing Médico - Descubra a verdade que 90% dos médicos não sabem">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #0ea5e9 50%, #0f172a 75%, #000000 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 30px rgba(14, 165, 233, 0.3);
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 30px rgba(14, 165, 233, 0.3); }
+            50% { box-shadow: 0 0 50px rgba(14, 165, 233, 0.6); }
+        }
+        
+        .floating-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .chat-bubble {
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .whatsapp-bg {
+            background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pulse-btn {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .typing-indicator {
+            animation: typing 1.5s infinite;
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% { opacity: 1; }
+            30% { opacity: 0.5; }
+        }
+        
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'jubarthi-blue': '#0ea5e9',
+                        'jubarthi-dark': '#0f172a',
+                        'jubarthi-gray': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Header Fixo -->
+    <header class="fixed top-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="logo.png" alt="Jubarthi Logo" class="h-10 w-auto">
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#livro" class="text-gray-300 hover:text-jubarthi-blue transition-colors">Livro</a>
+                <a href="#planos" class="text-gray-300 hover:text-jubarthi-blue transition-colors">Planos</a>
+                <a href="#" onclick="openWhatsApp()" class="bg-gradient-to-r from-jubarthi-blue to-cyan-400 px-6 py-2 rounded-full font-semibold pulse-btn hover:shadow-lg transition-all">
+                    Falar com Especialista
+                </a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-md">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#livro" class="block text-gray-300 hover:text-jubarthi-blue transition-colors">Livro</a>
+                <a href="#planos" class="block text-gray-300 hover:text-jubarthi-blue transition-colors">Planos</a>
+                <a href="#" onclick="openWhatsApp()" class="block bg-gradient-to-r from-jubarthi-blue to-cyan-400 px-6 py-2 rounded-full font-semibold text-center">
+                    Falar com Especialista
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen gradient-bg flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="container mx-auto px-6 py-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl lg:text-7xl font-bold font-montserrat mb-6 leading-tight">
+                        <span class="text-white">Chega de</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-jubarthi-blue to-cyan-400"> Fraude</span>
+                        <span class="text-white block">no Marketing Médico</span>
+                    </h1>
+                    <p class="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed">
+                        Descubra por que <span class="text-jubarthi-blue font-semibold">90% dos médicos</span> são enganados com promessas de marketing inúteis
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+                        <a href="https://loja.uiclap.com/titulo/ua90390/?srsltid=AfmBOooHq3QGrz5KiIQUlunEKar9WM9Z-680FWxZLTRRYksdje3YOBvr" target="_blank" class="bg-gradient-to-r from-jubarthi-blue to-cyan-400 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                            📚 LIVRO FÍSICO
+                        </a>
+                        <a href="https://api.whatsapp.com/send/?phone=5513996136266&text=Quero+o+livro+digital+-+CHEGA+DE+FRAUDE+NO+MKT+MEDICO%21&type=phone_number&app_absent=0" target="_blank" class="border-2 border-jubarthi-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-jubarthi-blue hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                            💻 LIVRO DIGITAL
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center lg:justify-end">
+                    <div class="relative">
+                        <img src="livro.png" alt="Livro Marketing Médico" class="w-80 lg:w-96 glow-effect rounded-lg">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-jubarthi-blue to-cyan-400 rounded-lg blur-xl opacity-30 animate-pulse"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 floating-btn">
+            <i data-lucide="chevron-down" class="w-8 h-8 text-jubarthi-blue"></i>
+        </div>
+    </section>
+
+    <!-- Chatbot Section -->
+    <section id="chatbot" class="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 scroll-fade">
+                <h2 class="text-4xl lg:text-5xl font-bold font-montserrat mb-6">
+                    Converse com Nosso <span class="text-jubarthi-blue">Especialista IA</span>
+                </h2>
+                <p class="text-xl text-gray-300">Descubra qual plano é ideal para você em poucos minutos</p>
+            </div>
+            
+            <div class="max-w-md mx-auto">
+                <div class="whatsapp-bg rounded-t-3xl p-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                            <i data-lucide="bot" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white">Mallu Ia - Jubarthi</h3>
+                            <p class="text-green-100 text-sm">Online agora</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 h-96 overflow-y-auto p-4" id="chat-messages">
+                    <div class="chat-bubble mb-4">
+                        <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
+                            <p class="text-gray-800">Olá, doutor(a)! 👨‍⚕️</p>
+                        </div>
+                    </div>
+                    <div class="chat-bubble mb-4">
+                        <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
+                            <p class="text-gray-800">Qual seu nome?</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-b-3xl">
+                    <div class="flex space-x-2">
+                        <input type="text" id="chat-input" placeholder="Digite sua resposta..." class="flex-1 border border-gray-300 rounded-full px-4 py-2 text-gray-800 focus:outline-none focus:border-jubarthi-blue">
+                        <button onclick="sendMessage()" class="bg-jubarthi-blue text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre a Jubarthi -->
+    <section id="sobre" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="scroll-fade">
+                    <h2 class="text-4xl lg:text-5xl font-bold font-montserrat mb-6">
+                        Quem é a <span class="text-jubarthi-blue">Jubarthi?</span>
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        Somos especialistas em marketing médico com mais de 5 anos transformando a presença digital de profissionais da saúde. Nossa missão é acabar com as promessas vazias e entregar resultados reais e mensuráveis.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                        Combinamos estratégia, tecnologia e inteligência artificial para criar soluções que realmente funcionam. Não prometemos milagres - entregamos resultados baseados em dados e transparência total.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-jubarthi-blue">500+</div>
+                            <div class="text-gray-400">Médicos Atendidos</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-jubarthi-blue">5+</div>
+                            <div class="text-gray-400">Anos de Experiência</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-fade">
+                    <div class="bg-gradient-to-br from-jubarthi-blue/20 to-cyan-400/20 p-8 rounded-3xl">
+                        <div class="text-center">
+                            <i data-lucide="shield-check" class="w-16 h-16 text-jubarthi-blue mx-auto mb-4"></i>
+                            <h3 class="text-2xl font-bold mb-4">Garantia de Transparência</h3>
+                            <p class="text-gray-300">
+                                Todos os nossos resultados são demonstrados com dados reais. Sem manipulação, sem promessas vazias.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos -->
+    <section id="planos" class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 scroll-fade">
+                <h2 class="text-4xl lg:text-5xl font-bold font-montserrat mb-6">
+                    Nossos <span class="text-jubarthi-blue">Planos</span>
+                </h2>
+                <p class="text-xl text-gray-300">Escolha a solução perfeita para o seu consultório</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Plano Criativo -->
+                <div class="bg-gray-800 rounded-3xl p-8 card-hover scroll-fade border border-gray-700">
+                    <div class="text-center mb-6">
+                        <i data-lucide="palette" class="w-12 h-12 text-jubarthi-blue mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Plano Criativo</h3>
+                        <div class="text-sm text-gray-400 line-through mb-2">De R$ 2.100,00</div>
+                        <div class="text-3xl font-bold text-jubarthi-blue">R$ 1.480,00<span class="text-lg text-gray-400">/mês</span></div>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-center">Ideal para médicos que querem fortalecer a presença digital.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Artes para redes sociais
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Vídeos pockets
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Materiais gráficos completos
+                        </li>
+                    </ul>
+                    <button onclick="openWhatsAppPlan('Criativo')" class="w-full bg-gradient-to-r from-jubarthi-blue to-cyan-400 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                        FALAR COM ESPECIALISTA
+                    </button>
+                </div>
+
+                <!-- Plano Gestão de Tráfego -->
+                <div class="bg-gray-800 rounded-3xl p-8 card-hover scroll-fade border border-gray-700">
+                    <div class="text-center mb-6">
+                        <i data-lucide="target" class="w-12 h-12 text-jubarthi-blue mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Gestão de Tráfego</h3>
+                        <div class="text-sm text-gray-400 line-through mb-2">De R$ 2.750,00</div>
+                        <div class="text-3xl font-bold text-jubarthi-blue">R$ 1.800,00<span class="text-lg text-gray-400">/mês</span></div>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-center">Para atrair pacientes com anúncios no Google e redes sociais.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Criação de campanhas
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Funis de conversão
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Segmentação de públicos
+                        </li>
+                    </ul>
+                    <button onclick="openWhatsAppPlan('Gestão de Tráfego')" class="w-full bg-gradient-to-r from-jubarthi-blue to-cyan-400 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                        FALAR COM ESPECIALISTA
+                    </button>
+                </div>
+
+                <!-- Plano Gestão Completa - DESTAQUE -->
+                <div class="bg-gradient-to-br from-jubarthi-blue/20 to-cyan-400/20 rounded-3xl p-8 card-hover scroll-fade border-2 border-jubarthi-blue relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-jubarthi-blue to-cyan-400 px-6 py-2 rounded-full text-sm font-bold">
+                        🏆 RECOMENDADO
+                    </div>
+                    <div class="text-center mb-6 mt-4">
+                        <i data-lucide="crown" class="w-12 h-12 text-jubarthi-blue mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Gestão Completa</h3>
+                        <div class="text-sm text-gray-400 line-through mb-2">De R$ 3.850,00</div>
+                        <div class="text-3xl font-bold text-jubarthi-blue">R$ 2.600,00<span class="text-lg text-gray-400">/mês</span></div>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-center">Você foca em medicina, a gente cuida de tudo.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Tudo do Criativo
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Tudo do Tráfego
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Gestão completa 360°
+                        </li>
+                    </ul>
+                    <button onclick="openWhatsAppPlan('Gestão Completa')" class="w-full bg-gradient-to-r from-jubarthi-blue to-cyan-400 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                        FALAR COM ESPECIALISTA
+                    </button>
+                </div>
+
+                <!-- Identidade Visual Premium -->
+                <div class="bg-gray-800 rounded-3xl p-8 card-hover scroll-fade border border-gray-700">
+                    <div class="text-center mb-6">
+                        <i data-lucide="pen-tool" class="w-12 h-12 text-jubarthi-blue mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Identidade Visual Premium</h3>
+                        <div class="text-sm text-gray-400 line-through mb-2">De R$ 12.670,00</div>
+                        <div class="text-3xl font-bold text-jubarthi-blue">R$ 4.500,00<span class="text-lg text-gray-400"> único</span></div>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-center">Marca visual inesquecível com manual médico.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Logotipo personalizado
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Identidade visual aplicada
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Manual da marca
+                        </li>
+                    </ul>
+                    <button onclick="openWhatsAppPlan('Identidade Visual Premium')" class="w-full bg-gradient-to-r from-jubarthi-blue to-cyan-400 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                        FALAR COM ESPECIALISTA
+                    </button>
+                </div>
+
+                <!-- Marketing Residente -->
+                <div class="bg-gray-800 rounded-3xl p-8 card-hover scroll-fade border border-gray-700">
+                    <div class="text-center mb-6">
+                        <i data-lucide="graduation-cap" class="w-12 h-12 text-jubarthi-blue mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Marketing Residente</h3>
+                        <div class="text-sm text-gray-400 line-through mb-2">De R$ 1.329,00</div>
+                        <div class="text-3xl font-bold text-jubarthi-blue">R$ 899,00<span class="text-lg text-gray-400"> único</span></div>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-center">Autoridade médica desde a residência.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Gestão de imagem profissional
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Posicionamento estratégico
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Consultoria especializada
+                        </li>
+                    </ul>
+                    <button onclick="openWhatsAppPlan('Marketing Residente')" class="w-full bg-gradient-to-r from-jubarthi-blue to-cyan-400 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                        FALAR COM ESPECIALISTA
+                    </button>
+                </div>
+
+                <!-- Aluno Médico -->
+                <div class="bg-gray-800 rounded-3xl p-8 card-hover scroll-fade border border-gray-700">
+                    <div class="text-center mb-6">
+                        <i data-lucide="book-open" class="w-12 h-12 text-jubarthi-blue mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Aluno Médico</h3>
+                        <div class="text-sm text-gray-400 line-through mb-2">De R$ 1.070,00</div>
+                        <div class="text-3xl font-bold text-jubarthi-blue">R$ 749,00<span class="text-lg text-gray-400"> único</span></div>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-center">Comece sua imagem profissional ainda na faculdade.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Perfil profissional
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Posicionamento inicial
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                            Orientação estratégica
+                        </li>
+                    </ul>
+                    <button onclick="openWhatsAppPlan('Aluno Médico')" class="w-full bg-gradient-to-r from-jubarthi-blue to-cyan-400 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                        FALAR COM ESPECIALISTA
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vantagens -->
+    <section id="vantagens" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 scroll-fade">
+                <h2 class="text-4xl lg:text-5xl font-bold font-montserrat mb-6">
+                    Vantagens de ser Cliente <span class="text-jubarthi-blue">Jubarthi</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center scroll-fade">
+                    <div class="bg-gradient-to-br from-jubarthi-blue/20 to-cyan-400/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="bar-chart" class="w-10 h-10 text-jubarthi-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Resultados Reais</h3>
+                    <p class="text-gray-300">Transparência total com dados comprovados e métricas mensuráveis</p>
+                </div>
+                
+                <div class="text-center scroll-fade">
+                    <div class="bg-gradient-to-br from-jubarthi-blue/20 to-cyan-400/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="heart" class="w-10 h-10 text-jubarthi-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Atendimento Humanizado</h3>
+                    <p class="text-gray-300">IA e especialistas trabalhando juntos para o seu sucesso</p>
+                </div>
+                
+                <div class="text-center scroll-fade">
+                    <div class="bg-gradient-to-br from-jubarthi-blue/20 to-cyan-400/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="message-circle" class="w-10 h-10 text-jubarthi-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Acesso Direto</h3>
+                    <p class="text-gray-300">Equipe sempre disponível via WhatsApp para suas dúvidas</p>
+                </div>
+                
+                <div class="text-center scroll-fade">
+                    <div class="bg-gradient-to-br from-jubarthi-blue/20 to-cyan-400/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="zap" class="w-10 h-10 text-jubarthi-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Tecnologia + Estratégia</h3>
+                    <p class="text-gray-300">Sem enrolação, direto ao ponto com ferramentas de ponta</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 scroll-fade">
+                <h2 class="text-4xl lg:text-5xl font-bold font-montserrat mb-6">
+                    Perguntas <span class="text-jubarthi-blue">Frequentes</span>
+                </h2>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="scroll-fade">
+                    <button class="faq-button w-full bg-gray-800 p-6 rounded-lg text-left hover:bg-gray-700 transition-colors" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold">Como recebo os materiais do plano?</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 transform transition-transform"></i>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-gray-300">
+                            <p>Todos os materiais são entregues via WhatsApp e através de nossa plataforma exclusiva. Você receberá acesso completo no primeiro dia após a contratação.</p>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="scroll-fade">
+                    <button class="faq-button w-full bg-gray-800 p-6 rounded-lg text-left hover:bg-gray-700 transition-colors" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold">O que acontece após eu contratar?</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 transform transition-transform"></i>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-gray-300">
+                            <p>Em até 24h você receberá o contato do seu especialista dedicado. Faremos uma reunião de alinhamento para entender suas necessidades e começar a produção dos materiais.</p>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="scroll-fade">
+                    <button class="faq-button w-full bg-gray-800 p-6 rounded-lg text-left hover:bg-gray-700 transition-colors" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold">É possível trocar de plano depois?</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 transform transition-transform"></i>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-gray-300">
+                            <p>Sim! Você pode fazer upgrade ou downgrade do seu plano a qualquer momento. Basta conversar com seu especialista e ajustaremos conforme sua necessidade.</p>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="scroll-fade">
+                    <button class="faq-button w-full bg-gray-800 p-6 rounded-lg text-left hover:bg-gray-700 transition-colors" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold">Vocês trabalham com qualquer especialidade médica?</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 transform transition-transform"></i>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-gray-300">
+                            <p>Sim! Temos experiência com todas as especialidades médicas. Nossos especialistas adaptam as estratégias para cada área, respeitando as particularidades do CFM.</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="cta-final" class="py-20 gradient-bg relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center scroll-fade">
+                <h2 class="text-4xl lg:text-6xl font-bold font-montserrat mb-8">
+                    Agora que você sabe tudo,<br>
+                    está pronto para <span class="text-jubarthi-blue">revolucionar</span><br>
+                    seu marketing médico?
+                </h2>
+                
+                <button onclick="openWhatsApp()" class="bg-gradient-to-r from-jubarthi-blue to-cyan-400 px-12 py-6 rounded-full text-2xl font-bold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 pulse-btn">
+                    🚀 FALAR COM ESPECIALISTA AGORA
+                </button>
+                
+                <p class="text-gray-300 mt-6">
+                    Resposta em menos de 1 minuto
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div>
+                    <img src="logo.png" alt="Jubarthi Logo" class="h-8 w-auto mb-4">
+                    <p class="text-gray-400">Revolucionando o marketing médico com transparência e resultados reais.</p>
+                </div>
+                
+                <div class="text-center">
+                    <h4 class="font-semibold mb-4">Contato</h4>
+                    <p class="text-gray-400 mb-2">📱 (13) 99613-6266</p>
+                    <p class="text-gray-400">✉️ contato@jubarthi.com.br</p>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400 text-sm">
+                        © 2024 Jubarthi. Todos os direitos reservados.<br>
+                        <a href="#" class="text-jubarthi-blue hover:underline">Política de Privacidade</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button onclick="openWhatsApp()" class="whatsapp-bg w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform floating-btn">
+            <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+        </button>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Variables for chat functionality
+        let chatStep = 0;
+        let userName = '';
+        let userPhone = '';
+        let chatData = {};
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Chat functionality
+        const chatMessages = [
+            "Olá, doutor(a)! 👨‍⚕️",
+            "Qual seu nome?",
+            "Perfeito, {name}! Qual seu WhatsApp para podermos te mandar materiais completos?",
+            "Ótimo! Agora me conte: qual tipo de resultado você mais busca com marketing médico?",
+            "Baseado no que você me disse, temos algumas opções perfeitas para você. Qual plano mais despertou seu interesse?",
+            "Excelente escolha! Vou conectar você com nosso especialista agora. Em instantes você receberá uma mensagem no WhatsApp!"
+        ];
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            // Add user message
+            addChatMessage(message, true);
+            input.value = '';
+
+            // Process response
+            setTimeout(() => {
+                processUserResponse(message);
+            }, 1000);
+        }
+
+        function addChatMessage(message, isUser = false) {
+            const chatContainer = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-bubble mb-4 ${isUser ? 'flex justify-end' : ''}`;
+            
+            const bubbleClass = isUser 
+                ? 'bg-jubarthi-blue text-white p-3 rounded-lg shadow-sm max-w-xs'
+                : 'bg-white p-3 rounded-lg shadow-sm max-w-xs';
+                
+            const textClass = isUser ? 'text-white' : 'text-gray-800';
+            
+            messageDiv.innerHTML = `
+                <div class="${bubbleClass}">
+                    <p class="${textClass}">${message}</p>
+                </div>
+            `;
+            
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function processUserResponse(message) {
+            chatStep++;
+            
+            switch(chatStep) {
+                case 1:
+                    userName = message;
+                    chatData.name = userName;
+                    addChatMessage(chatMessages[2].replace('{name}', userName));
+                    break;
+                case 2:
+                    userPhone = message;
+                    chatData.phone = userPhone;
+                    addChatMessage(chatMessages[3]);
+                    break;
+                case 3:
+                    chatData.interest = message;
+                    addChatMessage(chatMessages[4]);
+                    break;
+                case 4:
+                    chatData.plan = message;
+                    addChatMessage(chatMessages[5]);
+                    setTimeout(() => {
+                        submitToGoogleSheets();
+                        sendToWhatsApp();
+                    }, 2000);
+                    break;
+            }
+        }
+
+        function submitToGoogleSheets() {
+            // Simulate Google Sheets submission
+            console.log('Dados enviados para Google Sheets:', chatData);
+            
+            // Here you would integrate with Google Sheets API
+            // Example: 
+            // fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+            //     method: 'POST',
+            //     body: JSON.stringify(chatData)
+            // });
+        }
+
+        function sendToWhatsApp() {
+            const message = `🎯 *NOVO LEAD - JUBARTHI*
+
+👤 *Nome:* ${chatData.name}
+📱 *WhatsApp:* ${chatData.phone}
+🎯 *Interesse:* ${chatData.interest}
+📋 *Plano:* ${chatData.plan}
+
+⏰ *Data/Hora:* ${new Date().toLocaleString('pt-BR')}
+
+---
+Via Landing Page Jubarthi`;
+
+            const whatsappUrl = `https://wa.me/5513996136266?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Enter key support for chat
+        document.getElementById('chat-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // WhatsApp functions
+        function openWhatsApp() {
+            const message = "Olá! Vim através da landing page da Jubarthi e gostaria de falar com um especialista sobre os planos de marketing médico.";
+            const whatsappUrl = `https://wa.me/5513996136266?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function openWhatsAppPlan(planName) {
+            const message = `Olá! Vim através da landing page da Jubarthi e tenho interesse no *${planName}*. Gostaria de conversar com um especialista.`;
+            const whatsappUrl = `https://wa.me/5513996136266?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // FAQ functionality
+        function toggleFAQ(button) {
+            const content = button.querySelector('.faq-content');
+            const icon = button.querySelector('i');
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Scroll animations
+        function observeElements() {
+            const elements = document.querySelectorAll('.scroll-fade');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            observeElements();
+            
+            // Start chat after a delay
+            setTimeout(() => {
+                addChatMessage(chatMessages[1]);
+            }, 2000);
+        });
+
+        // Preload images
+        function preloadImages() {
+            const images = ['livro.png', 'logo.png'];
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+
+        preloadImages();
+    </script>
+</body>
+</html>
