@@ -12,29 +12,125 @@
     <meta property="og:description" content="Chega de Fraude no Marketing Médico - Descubra a verdade que 90% dos médicos não sabem">
     <meta property="og:type" content="website">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    
-    <!-- Custom Styles -->
+    <!-- Estilos CSS Inline Completos -->
     <style>
         * {
-            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .font-montserrat {
-            font-family: 'Montserrat', sans-serif;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: #111827;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
         }
         
-        .gradient-bg {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 50;
+            border-bottom: 1px solid #374151;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+        
+        .logo img {
+            height: 2.5rem;
+            width: auto;
+        }
+        
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #0ea5e9;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-menu {
+            display: none;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 1.5rem;
+        }
+        
+        .mobile-menu.show {
+            display: block;
+        }
+        
+        .mobile-menu .nav-link {
+            display: block;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #374151;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #0ea5e9 50%, #0f172a 75%, #000000 100%);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
         
         @keyframes gradientShift {
@@ -43,7 +139,85 @@
             100% { background-position: 0% 50%; }
         }
         
-        .glow-effect {
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 5rem 0;
+        }
+        
+        .hero-text {
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .btn-hero {
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            min-width: 280px;
+        }
+        
+        .btn-hero-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            color: white;
+        }
+        
+        .btn-hero-secondary {
+            border: 2px solid #0ea5e9;
+            color: white;
+            background: transparent;
+        }
+        
+        .btn-hero:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-image {
+            text-align: center;
+        }
+        
+        .book-image {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
             box-shadow: 0 0 30px rgba(14, 165, 233, 0.3);
             animation: pulse-glow 3s ease-in-out infinite;
         }
@@ -53,16 +227,86 @@
             50% { box-shadow: 0 0 50px rgba(14, 165, 233, 0.6); }
         }
         
-        .floating-btn {
-            animation: float 3s ease-in-out infinite;
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .section-bg-gray {
+            background: linear-gradient(180deg, #111827 0%, #1f2937 100%);
+        }
+        
+        .section-bg-dark {
+            background: #1f2937;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #d1d5db;
+            margin-bottom: 4rem;
+        }
+        
+        .highlight-blue {
+            color: #0ea5e9;
+        }
+        
+        /* Chat Section */
+        .chat-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+        
+        .chat-header {
+            background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .chat-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .chat-info h3 {
+            font-weight: 600;
+            color: white;
+            margin: 0;
+        }
+        
+        .chat-info p {
+            color: #dcfce7;
+            font-size: 0.875rem;
+            margin: 0;
+        }
+        
+        .chat-messages {
+            background: #f3f4f6;
+            height: 24rem;
+            overflow-y: auto;
+            padding: 1rem;
         }
         
         .chat-bubble {
+            margin-bottom: 1rem;
             animation: slideIn 0.5s ease-out;
         }
         
@@ -71,38 +315,357 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .whatsapp-bg {
-            background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+        .chat-bubble-content {
+            background: white;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            max-width: 16rem;
+            color: #1f2937;
         }
         
-        .card-hover {
+        .chat-bubble-user {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .chat-bubble-user .chat-bubble-content {
+            background: #0ea5e9;
+            color: white;
+        }
+        
+        .chat-input-area {
+            background: white;
+            padding: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .chat-input {
+            flex: 1;
+            border: 1px solid #d1d5db;
+            border-radius: 9999px;
+            padding: 0.5rem 1rem;
+            color: #1f2937;
+            outline: none;
+        }
+        
+        .chat-input:focus {
+            border-color: #0ea5e9;
+        }
+        
+        .chat-send-btn {
+            background: #0ea5e9;
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            padding: 0.5rem 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .chat-send-btn:hover {
+            background: #0284c7;
+        }
+        
+        /* Plans Grid */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .plan-card {
+            background: #1f2937;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 1px solid #374151;
             transition: all 0.3s ease;
+            position: relative;
         }
         
-        .card-hover:hover {
+        .plan-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
         }
         
-        .pulse-btn {
-            animation: pulse 2s infinite;
+        .plan-featured {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);
+            border: 2px solid #0ea5e9;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .plan-badge {
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 700;
         }
         
-        .typing-indicator {
-            animation: typing 1.5s infinite;
+        .plan-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
         }
         
-        @keyframes typing {
-            0%, 60%, 100% { opacity: 1; }
-            30% { opacity: 0.5; }
+        .plan-icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0ea5e9;
+            font-size: 1.5rem;
         }
         
+        .plan-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .plan-price-old {
+            color: #9ca3af;
+            text-decoration: line-through;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .plan-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0ea5e9;
+        }
+        
+        .plan-price-period {
+            font-size: 1rem;
+            color: #9ca3af;
+        }
+        
+        .plan-description {
+            text-align: center;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .plan-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: #d1d5db;
+        }
+        
+        .plan-feature-icon {
+            color: #10b981;
+            font-size: 1.25rem;
+        }
+        
+        .plan-cta {
+            width: 100%;
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            padding: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .plan-cta:hover {
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .feature-item {
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 5rem;
+            height: 5rem;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0ea5e9;
+            font-size: 2.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-description {
+            color: #d1d5db;
+        }
+        
+        /* FAQ Styles */
+        .faq-container {
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        
+        .faq-button {
+            width: 100%;
+            background: #1f2937;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-align: left;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-button:hover {
+            background: #374151;
+        }
+        
+        .faq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        
+        .faq-icon {
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-icon.rotated {
+            transform: rotate(180deg);
+        }
+        
+        .faq-content {
+            margin-top: 1rem;
+            color: #d1d5db;
+            display: none;
+        }
+        
+        .faq-content.show {
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background: #000000;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .footer-logo img {
+            height: 2rem;
+            width: auto;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-description {
+            color: #9ca3af;
+        }
+        
+        .footer-contact {
+            text-align: center;
+        }
+        
+        .footer-contact h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact p {
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-legal {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+        
+        .footer-legal a {
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+        
+        .footer-legal a:hover {
+            text-decoration: underline;
+        }
+        
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 50;
+        }
+        
+        .whatsapp-btn {
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Scroll Animations */
         .scroll-fade {
             opacity: 0;
             transform: translateY(30px);
@@ -113,50 +676,136 @@
             opacity: 1;
             transform: translateY(0);
         }
-    </style>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'jubarthi-blue': '#0ea5e9',
-                        'jubarthi-dark': '#0f172a',
-                        'jubarthi-gray': '#1e293b'
-                    }
-                }
+        
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .nav-desktop {
+                display: flex;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .hero-text {
+                text-align: left;
+            }
+            
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            
+            .plans-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-legal {
+                text-align: right;
             }
         }
-    </script>
+        
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .plans-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .nav-desktop {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-buttons {
+                align-items: stretch;
+            }
+            
+            .btn-hero {
+                min-width: auto;
+                width: 100%;
+            }
+        }
+        
+        /* Utility Classes */
+        .hidden {
+            display: none;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+        
+        .mt-4 {
+            margin-top: 1rem;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-900 text-white overflow-x-hidden">
+<body>
     <!-- Header Fixo -->
-    <header class="fixed top-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-gray-800">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="logo.png" alt="Jubarthi Logo" class="h-10 w-auto">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://via.placeholder.com/150x60/0ea5e9/ffffff?text=JUBARTHI" alt="Jubarthi Logo">
+                </div>
+                <nav class="nav-desktop">
+                    <a href="#livro" class="nav-link">Livro</a>
+                    <a href="#planos" class="nav-link">Planos</a>
+                    <a href="#" onclick="openWhatsApp()" class="btn-primary">
+                        Falar com Especialista
+                    </a>
+                </nav>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    ☰
+                </button>
             </div>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#livro" class="text-gray-300 hover:text-jubarthi-blue transition-colors">Livro</a>
-                <a href="#planos" class="text-gray-300 hover:text-jubarthi-blue transition-colors">Planos</a>
-                <a href="#" onclick="openWhatsApp()" class="bg-gradient-to-r from-jubarthi-blue to-cyan-400 px-6 py-2 rounded-full font-semibold pulse-btn hover:shadow-lg transition-all">
-                    Falar com Especialista
-                </a>
-            </nav>
             
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-md">
-            <div class="px-6 py-4 space-y-4">
-                <a href="#livro" class="block text-gray-300 hover:text-jubarthi-blue transition-colors">Livro</a>
-                <a href="#planos" class="block text-gray-300 hover:text-jubarthi-blue transition-colors">Planos</a>
-                <a href="#" onclick="openWhatsApp()" class="block bg-gradient-to-r from-jubarthi-blue to-cyan-400 px-6 py-2 rounded-full font-semibold text-center">
+            <div id="mobile-menu" class="mobile-menu">
+                <a href="#livro" class="nav-link">Livro</a>
+                <a href="#planos" class="nav-link">Planos</a>
+                <a href="#" onclick="openWhatsApp()" class="btn-primary" style="margin-top: 1rem; display: block; text-align: center;">
                     Falar com Especialista
                 </a>
             </div>
@@ -164,124 +813,110 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="min-h-screen gradient-bg flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-black/30"></div>
-        <div class="container mx-auto px-6 py-20 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="text-center lg:text-left">
-                    <h1 class="text-5xl lg:text-7xl font-bold font-montserrat mb-6 leading-tight">
-                        <span class="text-white">Chega de</span>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-jubarthi-blue to-cyan-400"> Fraude</span>
-                        <span class="text-white block">no Marketing Médico</span>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Chega de <span class="highlight-blue">Fraude</span><br>
+                        no Marketing Médico
                     </h1>
-                    <p class="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed">
-                        Descubra por que <span class="text-jubarthi-blue font-semibold">90% dos médicos</span> são enganados com promessas de marketing inúteis
+                    <p class="hero-subtitle">
+                        Descubra por que <span class="highlight-blue">90% dos médicos</span> são enganados com promessas de marketing inúteis
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
-                        <a href="https://loja.uiclap.com/titulo/ua90390/?srsltid=AfmBOooHq3QGrz5KiIQUlunEKar9WM9Z-680FWxZLTRRYksdje3YOBvr" target="_blank" class="bg-gradient-to-r from-jubarthi-blue to-cyan-400 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <div class="hero-buttons">
+                        <a href="https://loja.uiclap.com/titulo/ua90390/?srsltid=AfmBOooHq3QGrz5KiIQUlunEKar9WM9Z-680FWxZLTRRYksdje3YOBvr" target="_blank" class="btn-hero btn-hero-primary">
                             📚 LIVRO FÍSICO
                         </a>
-                        <a href="https://api.whatsapp.com/send/?phone=5513996136266&text=Quero+o+livro+digital+-+CHEGA+DE+FRAUDE+NO+MKT+MEDICO%21&type=phone_number&app_absent=0" target="_blank" class="border-2 border-jubarthi-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-jubarthi-blue hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                        <a href="#" onclick="openWhatsAppDigitalBook()" class="btn-hero btn-hero-secondary">
                             💻 LIVRO DIGITAL
                         </a>
                     </div>
                 </div>
                 
-                <div class="flex justify-center lg:justify-end">
-                    <div class="relative">
-                        <img src="livro.png" alt="Livro Marketing Médico" class="w-80 lg:w-96 glow-effect rounded-lg">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-jubarthi-blue to-cyan-400 rounded-lg blur-xl opacity-30 animate-pulse"></div>
-                    </div>
+                <div class="hero-image">
+                    <img src="https://m.media-amazon.com/images/I/51erGFCgqjL.jpg" alt="Livro Marketing Médico" class="book-image">
                 </div>
             </div>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 floating-btn">
-            <i data-lucide="chevron-down" class="w-8 h-8 text-jubarthi-blue"></i>
         </div>
     </section>
 
     <!-- Chatbot Section -->
-    <section id="chatbot" class="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12 scroll-fade">
-                <h2 class="text-4xl lg:text-5xl font-bold font-montserrat mb-6">
-                    Converse com Nosso <span class="text-jubarthi-blue">Especialista IA</span>
+    <section class="section section-bg-gray">
+        <div class="container">
+            <div class="text-center mb-8 scroll-fade">
+                <h2 class="section-title">
+                    Converse com Nosso <span class="highlight-blue">Especialista IA</span>
                 </h2>
-                <p class="text-xl text-gray-300">Descubra qual plano é ideal para você em poucos minutos</p>
+                <p class="section-subtitle">Descubra qual plano é ideal para você em poucos minutos</p>
             </div>
             
-            <div class="max-w-md mx-auto">
-                <div class="whatsapp-bg rounded-t-3xl p-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                            <i data-lucide="bot" class="w-6 h-6 text-green-600"></i>
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="chat-avatar">
+                        🤖
+                    </div>
+                    <div class="chat-info">
+                        <h3>Mallu IA - Jubarthi</h3>
+                        <p>Online agora</p>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="chat-bubble">
+                        <div class="chat-bubble-content">
+                            <p>Olá, doutor(a)! 👨‍⚕️</p>
                         </div>
-                        <div>
-                            <h3 class="font-semibold text-white">Mallu Ia - Jubarthi</h3>
-                            <p class="text-green-100 text-sm">Online agora</p>
+                    </div>
+                    <div class="chat-bubble">
+                        <div class="chat-bubble-content">
+                            <p>Qual seu nome?</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="bg-gray-100 h-96 overflow-y-auto p-4" id="chat-messages">
-                    <div class="chat-bubble mb-4">
-                        <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
-                            <p class="text-gray-800">Olá, doutor(a)! 👨‍⚕️</p>
-                        </div>
-                    </div>
-                    <div class="chat-bubble mb-4">
-                        <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
-                            <p class="text-gray-800">Qual seu nome?</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-4 rounded-b-3xl">
-                    <div class="flex space-x-2">
-                        <input type="text" id="chat-input" placeholder="Digite sua resposta..." class="flex-1 border border-gray-300 rounded-full px-4 py-2 text-gray-800 focus:outline-none focus:border-jubarthi-blue">
-                        <button onclick="sendMessage()" class="bg-jubarthi-blue text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors">
-                            <i data-lucide="send" class="w-5 h-5"></i>
-                        </button>
-                    </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Digite sua resposta..." class="chat-input">
+                    <button onclick="sendMessage()" class="chat-send-btn">
+                        ▶
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sobre a Jubarthi -->
-    <section id="sobre" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <section class="section section-bg-dark">
+        <div class="container">
+            <div class="hero-content">
                 <div class="scroll-fade">
-                    <h2 class="text-4xl lg:text-5xl font-bold font-montserrat mb-6">
-                        Quem é a <span class="text-jubarthi-blue">Jubarthi?</span>
+                    <h2 class="section-title" style="text-align: left;">
+                        Quem é a <span class="highlight-blue">Jubarthi?</span>
                     </h2>
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                    <p class="hero-subtitle" style="text-align: left; margin-bottom: 1.5rem;">
                         Somos especialistas em marketing médico com mais de 5 anos transformando a presença digital de profissionais da saúde. Nossa missão é acabar com as promessas vazias e entregar resultados reais e mensuráveis.
                     </p>
-                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    <p class="hero-subtitle" style="text-align: left; margin-bottom: 2rem;">
                         Combinamos estratégia, tecnologia e inteligência artificial para criar soluções que realmente funcionam. Não prometemos milagres - entregamos resultados baseados em dados e transparência total.
                     </p>
-                    <div class="grid grid-cols-2 gap-6">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-jubarthi-blue">500+</div>
-                            <div class="text-gray-400">Médicos Atendidos</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: #0ea5e9;">500+</div>
+                            <div style="color: #9ca3af;">Médicos Atendidos</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-jubarthi-blue">5+</div>
-                            <div class="text-gray-400">Anos de Experiência</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: #0ea5e9;">5+</div>
+                            <div style="color: #9ca3af;">Anos de Experiência</div>
                         </div>
                     </div>
                 </div>
                 <div class="scroll-fade">
-                    <div class="bg-gradient-to-br from-jubarthi-blue/20 to-cyan-400/20 p-8 rounded-3xl">
+                    <div style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%); padding: 2rem; border-radius: 1.5rem;">
                         <div class="text-center">
-                            <i data-lucide="shield-check" class="w-16 h-16 text-jubarthi-blue mx-auto mb-4"></i>
-                            <h3 class="text-2xl font-bold mb-4">Garantia de Transparência</h3>
-                            <p class="text-gray-300">
+                            <div class="feature-icon" style="margin-bottom: 1rem;">🛡️</div>
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Garantia de Transparência</h3>
+                            <p style="color: #d1d5db;">
                                 Todos os nossos resultados são demonstrados com dados reais. Sem manipulação, sem promessas vazias.
                             </p>
                         </div>
@@ -292,183 +927,183 @@
     </section>
 
     <!-- Planos -->
-    <section id="planos" class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 scroll-fade">
-                <h2 class="text-4xl lg:text-5xl font-bold font-montserrat mb-6">
-                    Nossos <span class="text-jubarthi-blue">Planos</span>
+    <section id="planos" class="section section-bg-gray">
+        <div class="container">
+            <div class="text-center mb-8 scroll-fade">
+                <h2 class="section-title">
+                    Nossos <span class="highlight-blue">Planos</span>
                 </h2>
-                <p class="text-xl text-gray-300">Escolha a solução perfeita para o seu consultório</p>
+                <p class="section-subtitle">Escolha a solução perfeita para o seu consultório</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="plans-grid">
                 <!-- Plano Criativo -->
-                <div class="bg-gray-800 rounded-3xl p-8 card-hover scroll-fade border border-gray-700">
-                    <div class="text-center mb-6">
-                        <i data-lucide="palette" class="w-12 h-12 text-jubarthi-blue mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-2">Plano Criativo</h3>
-                        <div class="text-sm text-gray-400 line-through mb-2">De R$ 2.100,00</div>
-                        <div class="text-3xl font-bold text-jubarthi-blue">R$ 1.480,00<span class="text-lg text-gray-400">/mês</span></div>
+                <div class="plan-card scroll-fade">
+                    <div class="plan-header">
+                        <div class="plan-icon">🎨</div>
+                        <h3 class="plan-title">Plano Criativo</h3>
+                        <div class="plan-price-old">De R$ 2.100,00</div>
+                        <div class="plan-price">R$ 1.480,00<span class="plan-price-period">/mês</span></div>
                     </div>
-                    <p class="text-gray-300 mb-6 text-center">Ideal para médicos que querem fortalecer a presença digital.</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                    <p class="plan-description">Ideal para médicos que querem fortalecer a presença digital.</p>
+                    <ul class="plan-features">
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Artes para redes sociais
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Vídeos pockets
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Materiais gráficos completos
                         </li>
                     </ul>
-                    <button onclick="openWhatsAppPlan('Criativo')" class="w-full bg-gradient-to-r from-jubarthi-blue to-cyan-400 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                    <button onclick="openWhatsAppPlan('Criativo', 'R$ 1.480,00/mês', 'Artes para redes sociais, Vídeos pockets, Materiais gráficos completos')" class="plan-cta">
                         FALAR COM ESPECIALISTA
                     </button>
                 </div>
 
                 <!-- Plano Gestão de Tráfego -->
-                <div class="bg-gray-800 rounded-3xl p-8 card-hover scroll-fade border border-gray-700">
-                    <div class="text-center mb-6">
-                        <i data-lucide="target" class="w-12 h-12 text-jubarthi-blue mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-2">Gestão de Tráfego</h3>
-                        <div class="text-sm text-gray-400 line-through mb-2">De R$ 2.750,00</div>
-                        <div class="text-3xl font-bold text-jubarthi-blue">R$ 1.800,00<span class="text-lg text-gray-400">/mês</span></div>
+                <div class="plan-card scroll-fade">
+                    <div class="plan-header">
+                        <div class="plan-icon">🎯</div>
+                        <h3 class="plan-title">Gestão de Tráfego</h3>
+                        <div class="plan-price-old">De R$ 2.750,00</div>
+                        <div class="plan-price">R$ 1.800,00<span class="plan-price-period">/mês</span></div>
                     </div>
-                    <p class="text-gray-300 mb-6 text-center">Para atrair pacientes com anúncios no Google e redes sociais.</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                    <p class="plan-description">Para atrair pacientes com anúncios no Google e redes sociais.</p>
+                    <ul class="plan-features">
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Criação de campanhas
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Funis de conversão
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Segmentação de públicos
                         </li>
                     </ul>
-                    <button onclick="openWhatsAppPlan('Gestão de Tráfego')" class="w-full bg-gradient-to-r from-jubarthi-blue to-cyan-400 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                    <button onclick="openWhatsAppPlan('Gestão de Tráfego', 'R$ 1.800,00/mês', 'Criação de campanhas, Funis de conversão, Segmentação de públicos')" class="plan-cta">
                         FALAR COM ESPECIALISTA
                     </button>
                 </div>
 
                 <!-- Plano Gestão Completa - DESTAQUE -->
-                <div class="bg-gradient-to-br from-jubarthi-blue/20 to-cyan-400/20 rounded-3xl p-8 card-hover scroll-fade border-2 border-jubarthi-blue relative">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-jubarthi-blue to-cyan-400 px-6 py-2 rounded-full text-sm font-bold">
+                <div class="plan-card plan-featured scroll-fade">
+                    <div class="plan-badge">
                         🏆 RECOMENDADO
                     </div>
-                    <div class="text-center mb-6 mt-4">
-                        <i data-lucide="crown" class="w-12 h-12 text-jubarthi-blue mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-2">Gestão Completa</h3>
-                        <div class="text-sm text-gray-400 line-through mb-2">De R$ 3.850,00</div>
-                        <div class="text-3xl font-bold text-jubarthi-blue">R$ 2.600,00<span class="text-lg text-gray-400">/mês</span></div>
+                    <div class="plan-header" style="margin-top: 1rem;">
+                        <div class="plan-icon">👑</div>
+                        <h3 class="plan-title">Gestão Completa</h3>
+                        <div class="plan-price-old">De R$ 3.850,00</div>
+                        <div class="plan-price">R$ 2.600,00<span class="plan-price-period">/mês</span></div>
                     </div>
-                    <p class="text-gray-300 mb-6 text-center">Você foca em medicina, a gente cuida de tudo.</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                    <p class="plan-description">Você foca em medicina, a gente cuida de tudo.</p>
+                    <ul class="plan-features">
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Tudo do Criativo
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Tudo do Tráfego
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Gestão completa 360°
                         </li>
                     </ul>
-                    <button onclick="openWhatsAppPlan('Gestão Completa')" class="w-full bg-gradient-to-r from-jubarthi-blue to-cyan-400 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                    <button onclick="openWhatsAppPlan('Gestão Completa', 'R$ 2.600,00/mês', 'Tudo do Criativo + Tudo do Tráfego + Gestão completa 360°')" class="plan-cta">
                         FALAR COM ESPECIALISTA
                     </button>
                 </div>
 
                 <!-- Identidade Visual Premium -->
-                <div class="bg-gray-800 rounded-3xl p-8 card-hover scroll-fade border border-gray-700">
-                    <div class="text-center mb-6">
-                        <i data-lucide="pen-tool" class="w-12 h-12 text-jubarthi-blue mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-2">Identidade Visual Premium</h3>
-                        <div class="text-sm text-gray-400 line-through mb-2">De R$ 12.670,00</div>
-                        <div class="text-3xl font-bold text-jubarthi-blue">R$ 4.500,00<span class="text-lg text-gray-400"> único</span></div>
+                <div class="plan-card scroll-fade">
+                    <div class="plan-header">
+                        <div class="plan-icon">✏️</div>
+                        <h3 class="plan-title">Identidade Visual Premium</h3>
+                        <div class="plan-price-old">De R$ 12.670,00</div>
+                        <div class="plan-price">R$ 4.500,00<span class="plan-price-period"> único</span></div>
                     </div>
-                    <p class="text-gray-300 mb-6 text-center">Marca visual inesquecível com manual médico.</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                    <p class="plan-description">Marca visual inesquecível com manual médico.</p>
+                    <ul class="plan-features">
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Logotipo personalizado
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Identidade visual aplicada
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Manual da marca
                         </li>
                     </ul>
-                    <button onclick="openWhatsAppPlan('Identidade Visual Premium')" class="w-full bg-gradient-to-r from-jubarthi-blue to-cyan-400 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                    <button onclick="openWhatsAppPlan('Identidade Visual Premium', 'R$ 4.500,00 único', 'Logotipo personalizado, Identidade visual aplicada, Manual da marca')" class="plan-cta">
                         FALAR COM ESPECIALISTA
                     </button>
                 </div>
 
                 <!-- Marketing Residente -->
-                <div class="bg-gray-800 rounded-3xl p-8 card-hover scroll-fade border border-gray-700">
-                    <div class="text-center mb-6">
-                        <i data-lucide="graduation-cap" class="w-12 h-12 text-jubarthi-blue mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-2">Marketing Residente</h3>
-                        <div class="text-sm text-gray-400 line-through mb-2">De R$ 1.329,00</div>
-                        <div class="text-3xl font-bold text-jubarthi-blue">R$ 899,00<span class="text-lg text-gray-400"> único</span></div>
+                <div class="plan-card scroll-fade">
+                    <div class="plan-header">
+                        <div class="plan-icon">🎓</div>
+                        <h3 class="plan-title">Marketing Residente</h3>
+                        <div class="plan-price-old">De R$ 1.329,00</div>
+                        <div class="plan-price">R$ 899,00<span class="plan-price-period"> único</span></div>
                     </div>
-                    <p class="text-gray-300 mb-6 text-center">Autoridade médica desde a residência.</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                    <p class="plan-description">Autoridade médica desde a residência.</p>
+                    <ul class="plan-features">
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Gestão de imagem profissional
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Posicionamento estratégico
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Consultoria especializada
                         </li>
                     </ul>
-                    <button onclick="openWhatsAppPlan('Marketing Residente')" class="w-full bg-gradient-to-r from-jubarthi-blue to-cyan-400 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                    <button onclick="openWhatsAppPlan('Marketing Residente', 'R$ 899,00 único', 'Gestão de imagem profissional, Posicionamento estratégico, Consultoria especializada')" class="plan-cta">
                         FALAR COM ESPECIALISTA
                     </button>
                 </div>
 
                 <!-- Aluno Médico -->
-                <div class="bg-gray-800 rounded-3xl p-8 card-hover scroll-fade border border-gray-700">
-                    <div class="text-center mb-6">
-                        <i data-lucide="book-open" class="w-12 h-12 text-jubarthi-blue mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-2">Aluno Médico</h3>
-                        <div class="text-sm text-gray-400 line-through mb-2">De R$ 1.070,00</div>
-                        <div class="text-3xl font-bold text-jubarthi-blue">R$ 749,00<span class="text-lg text-gray-400"> único</span></div>
+                <div class="plan-card scroll-fade">
+                    <div class="plan-header">
+                        <div class="plan-icon">📚</div>
+                        <h3 class="plan-title">Aluno Médico</h3>
+                        <div class="plan-price-old">De R$ 1.070,00</div>
+                        <div class="plan-price">R$ 749,00<span class="plan-price-period"> único</span></div>
                     </div>
-                    <p class="text-gray-300 mb-6 text-center">Comece sua imagem profissional ainda na faculdade.</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                    <p class="plan-description">Comece sua imagem profissional ainda na faculdade.</p>
+                    <ul class="plan-features">
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Perfil profissional
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Posicionamento inicial
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
+                        <li class="plan-feature">
+                            <span class="plan-feature-icon">✓</span>
                             Orientação estratégica
                         </li>
                     </ul>
-                    <button onclick="openWhatsAppPlan('Aluno Médico')" class="w-full bg-gradient-to-r from-jubarthi-blue to-cyan-400 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                    <button onclick="openWhatsAppPlan('Aluno Médico', 'R$ 749,00 único', 'Perfil profissional, Posicionamento inicial, Orientação estratégica')" class="plan-cta">
                         FALAR COM ESPECIALISTA
                     </button>
                 </div>
@@ -477,103 +1112,95 @@
     </section>
 
     <!-- Vantagens -->
-    <section id="vantagens" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 scroll-fade">
-                <h2 class="text-4xl lg:text-5xl font-bold font-montserrat mb-6">
-                    Vantagens de ser Cliente <span class="text-jubarthi-blue">Jubarthi</span>
+    <section class="section section-bg-dark">
+        <div class="container">
+            <div class="text-center mb-8 scroll-fade">
+                <h2 class="section-title">
+                    Vantagens de ser Cliente <span class="highlight-blue">Jubarthi</span>
                 </h2>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center scroll-fade">
-                    <div class="bg-gradient-to-br from-jubarthi-blue/20 to-cyan-400/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i data-lucide="bar-chart" class="w-10 h-10 text-jubarthi-blue"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Resultados Reais</h3>
-                    <p class="text-gray-300">Transparência total com dados comprovados e métricas mensuráveis</p>
+            <div class="features-grid">
+                <div class="feature-item scroll-fade">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Resultados Reais</h3>
+                    <p class="feature-description">Transparência total com dados comprovados e métricas mensuráveis</p>
                 </div>
                 
-                <div class="text-center scroll-fade">
-                    <div class="bg-gradient-to-br from-jubarthi-blue/20 to-cyan-400/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i data-lucide="heart" class="w-10 h-10 text-jubarthi-blue"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Atendimento Humanizado</h3>
-                    <p class="text-gray-300">IA e especialistas trabalhando juntos para o seu sucesso</p>
+                <div class="feature-item scroll-fade">
+                    <div class="feature-icon">❤️</div>
+                    <h3 class="feature-title">Atendimento Humanizado</h3>
+                    <p class="feature-description">IA e especialistas trabalhando juntos para o seu sucesso</p>
                 </div>
                 
-                <div class="text-center scroll-fade">
-                    <div class="bg-gradient-to-br from-jubarthi-blue/20 to-cyan-400/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i data-lucide="message-circle" class="w-10 h-10 text-jubarthi-blue"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Acesso Direto</h3>
-                    <p class="text-gray-300">Equipe sempre disponível via WhatsApp para suas dúvidas</p>
+                <div class="feature-item scroll-fade">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">Acesso Direto</h3>
+                    <p class="feature-description">Equipe sempre disponível via WhatsApp para suas dúvidas</p>
                 </div>
                 
-                <div class="text-center scroll-fade">
-                    <div class="bg-gradient-to-br from-jubarthi-blue/20 to-cyan-400/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i data-lucide="zap" class="w-10 h-10 text-jubarthi-blue"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Tecnologia + Estratégia</h3>
-                    <p class="text-gray-300">Sem enrolação, direto ao ponto com ferramentas de ponta</p>
+                <div class="feature-item scroll-fade">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Tecnologia + Estratégia</h3>
+                    <p class="feature-description">Sem enrolação, direto ao ponto com ferramentas de ponta</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 scroll-fade">
-                <h2 class="text-4xl lg:text-5xl font-bold font-montserrat mb-6">
-                    Perguntas <span class="text-jubarthi-blue">Frequentes</span>
+    <section class="section section-bg-gray">
+        <div class="container">
+            <div class="text-center mb-8 scroll-fade">
+                <h2 class="section-title">
+                    Perguntas <span class="highlight-blue">Frequentes</span>
                 </h2>
             </div>
             
-            <div class="max-w-3xl mx-auto space-y-4">
-                <div class="scroll-fade">
-                    <button class="faq-button w-full bg-gray-800 p-6 rounded-lg text-left hover:bg-gray-700 transition-colors" onclick="toggleFAQ(this)">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg font-semibold">Como recebo os materiais do plano?</h3>
-                            <i data-lucide="chevron-down" class="w-5 h-5 transform transition-transform"></i>
+            <div class="faq-container">
+                <div class="faq-item scroll-fade">
+                    <button class="faq-button" onclick="toggleFAQ(this)">
+                        <div class="faq-header">
+                            <h3 class="faq-title">Como recebo os materiais do plano?</h3>
+                            <span class="faq-icon">▼</span>
                         </div>
-                        <div class="faq-content hidden mt-4 text-gray-300">
+                        <div class="faq-content">
                             <p>Todos os materiais são entregues via WhatsApp e através de nossa plataforma exclusiva. Você receberá acesso completo no primeiro dia após a contratação.</p>
                         </div>
                     </button>
                 </div>
                 
-                <div class="scroll-fade">
-                    <button class="faq-button w-full bg-gray-800 p-6 rounded-lg text-left hover:bg-gray-700 transition-colors" onclick="toggleFAQ(this)">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg font-semibold">O que acontece após eu contratar?</h3>
-                            <i data-lucide="chevron-down" class="w-5 h-5 transform transition-transform"></i>
+                <div class="faq-item scroll-fade">
+                    <button class="faq-button" onclick="toggleFAQ(this)">
+                        <div class="faq-header">
+                            <h3 class="faq-title">O que acontece após eu contratar?</h3>
+                            <span class="faq-icon">▼</span>
                         </div>
-                        <div class="faq-content hidden mt-4 text-gray-300">
+                        <div class="faq-content">
                             <p>Em até 24h você receberá o contato do seu especialista dedicado. Faremos uma reunião de alinhamento para entender suas necessidades e começar a produção dos materiais.</p>
                         </div>
                     </button>
                 </div>
                 
-                <div class="scroll-fade">
-                    <button class="faq-button w-full bg-gray-800 p-6 rounded-lg text-left hover:bg-gray-700 transition-colors" onclick="toggleFAQ(this)">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg font-semibold">É possível trocar de plano depois?</h3>
-                            <i data-lucide="chevron-down" class="w-5 h-5 transform transition-transform"></i>
+                <div class="faq-item scroll-fade">
+                    <button class="faq-button" onclick="toggleFAQ(this)">
+                        <div class="faq-header">
+                            <h3 class="faq-title">É possível trocar de plano depois?</h3>
+                            <span class="faq-icon">▼</span>
                         </div>
-                        <div class="faq-content hidden mt-4 text-gray-300">
+                        <div class="faq-content">
                             <p>Sim! Você pode fazer upgrade ou downgrade do seu plano a qualquer momento. Basta conversar com seu especialista e ajustaremos conforme sua necessidade.</p>
                         </div>
                     </button>
                 </div>
                 
-                <div class="scroll-fade">
-                    <button class="faq-button w-full bg-gray-800 p-6 rounded-lg text-left hover:bg-gray-700 transition-colors" onclick="toggleFAQ(this)">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg font-semibold">Vocês trabalham com qualquer especialidade médica?</h3>
-                            <i data-lucide="chevron-down" class="w-5 h-5 transform transition-transform"></i>
+                <div class="faq-item scroll-fade">
+                    <button class="faq-button" onclick="toggleFAQ(this)">
+                        <div class="faq-header">
+                            <h3 class="faq-title">Vocês trabalham com qualquer especialidade médica?</h3>
+                            <span class="faq-icon">▼</span>
                         </div>
-                        <div class="faq-content hidden mt-4 text-gray-300">
+                        <div class="faq-content">
                             <p>Sim! Temos experiência com todas as especialidades médicas. Nossos especialistas adaptam as estratégias para cada área, respeitando as particularidades do CFM.</p>
                         </div>
                     </button>
@@ -583,21 +1210,20 @@
     </section>
 
     <!-- CTA Final -->
-    <section id="cta-final" class="py-20 gradient-bg relative overflow-hidden">
-        <div class="absolute inset-0 bg-black/40"></div>
-        <div class="container mx-auto px-6 relative z-10">
+    <section class="hero">
+        <div class="container">
             <div class="text-center scroll-fade">
-                <h2 class="text-4xl lg:text-6xl font-bold font-montserrat mb-8">
+                <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 2rem; line-height: 1.2;">
                     Agora que você sabe tudo,<br>
-                    está pronto para <span class="text-jubarthi-blue">revolucionar</span><br>
+                    está pronto para <span class="highlight-blue">revolucionar</span><br>
                     seu marketing médico?
                 </h2>
                 
-                <button onclick="openWhatsApp()" class="bg-gradient-to-r from-jubarthi-blue to-cyan-400 px-12 py-6 rounded-full text-2xl font-bold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 pulse-btn">
+                <button onclick="openWhatsApp()" class="btn-hero btn-hero-primary" style="font-size: 1.5rem; padding: 1.5rem 3rem;">
                     🚀 FALAR COM ESPECIALISTA AGORA
                 </button>
                 
-                <p class="text-gray-300 mt-6">
+                <p style="color: #d1d5db; margin-top: 1.5rem;">
                     Resposta em menos de 1 minuto
                 </p>
             </div>
@@ -605,24 +1231,26 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8 items-center">
+    <footer>
+        <div class="container">
+            <div class="footer-content">
                 <div>
-                    <img src="logo.png" alt="Jubarthi Logo" class="h-8 w-auto mb-4">
-                    <p class="text-gray-400">Revolucionando o marketing médico com transparência e resultados reais.</p>
+                    <div class="footer-logo">
+                        <img src="https://via.placeholder.com/150x60/0ea5e9/ffffff?text=JUBARTHI" alt="Jubarthi Logo">
+                    </div>
+                    <p class="footer-description">Revolucionando o marketing médico com transparência e resultados reais.</p>
                 </div>
                 
-                <div class="text-center">
-                    <h4 class="font-semibold mb-4">Contato</h4>
-                    <p class="text-gray-400 mb-2">📱 (13) 99613-6266</p>
-                    <p class="text-gray-400">✉️ contato@jubarthi.com.br</p>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p>📱 (13) 99613-6266</p>
+                    <p>✉️ contato@jubarthi.com.br</p>
                 </div>
                 
-                <div class="text-center md:text-right">
-                    <p class="text-gray-400 text-sm">
+                <div class="footer-legal">
+                    <p>
                         © 2024 Jubarthi. Todos os direitos reservados.<br>
-                        <a href="#" class="text-jubarthi-blue hover:underline">Política de Privacidade</a>
+                        <a href="#">Política de Privacidade</a>
                     </p>
                 </div>
             </div>
@@ -630,16 +1258,13 @@
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <button onclick="openWhatsApp()" class="whatsapp-bg w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform floating-btn">
-            <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+    <div class="whatsapp-float">
+        <button onclick="openWhatsApp()" class="whatsapp-btn">
+            💬
         </button>
     </div>
 
     <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-
         // Variables for chat functionality
         let chatStep = 0;
         let userName = '';
@@ -647,10 +1272,10 @@
         let chatData = {};
 
         // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
+            mobileMenu.classList.toggle('show');
+        }
 
         // Chat functionality
         const chatMessages = [
@@ -681,17 +1306,11 @@
         function addChatMessage(message, isUser = false) {
             const chatContainer = document.getElementById('chat-messages');
             const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-bubble mb-4 ${isUser ? 'flex justify-end' : ''}`;
-            
-            const bubbleClass = isUser 
-                ? 'bg-jubarthi-blue text-white p-3 rounded-lg shadow-sm max-w-xs'
-                : 'bg-white p-3 rounded-lg shadow-sm max-w-xs';
-                
-            const textClass = isUser ? 'text-white' : 'text-gray-800';
+            messageDiv.className = `chat-bubble ${isUser ? 'chat-bubble-user' : ''}`;
             
             messageDiv.innerHTML = `
-                <div class="${bubbleClass}">
-                    <p class="${textClass}">${message}</p>
+                <div class="chat-bubble-content">
+                    <p>${message}</p>
                 </div>
             `;
             
@@ -721,23 +1340,10 @@
                     chatData.plan = message;
                     addChatMessage(chatMessages[5]);
                     setTimeout(() => {
-                        submitToGoogleSheets();
                         sendToWhatsApp();
                     }, 2000);
                     break;
             }
-        }
-
-        function submitToGoogleSheets() {
-            // Simulate Google Sheets submission
-            console.log('Dados enviados para Google Sheets:', chatData);
-            
-            // Here you would integrate with Google Sheets API
-            // Example: 
-            // fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
-            //     method: 'POST',
-            //     body: JSON.stringify(chatData)
-            // });
         }
 
         function sendToWhatsApp() {
@@ -753,8 +1359,38 @@
 ---
 Via Landing Page Jubarthi`;
 
-            const whatsappUrl = `https://wa.me/5513996136266?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+            openWhatsAppWithMessage(message);
+        }
+
+        // Função melhorada para detectar dispositivo móvel
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Função universal para abrir WhatsApp
+        function openWhatsAppWithMessage(message) {
+            const encodedMessage = encodeURIComponent(message);
+            const phone = '5513996136266';
+            
+            if (isMobileDevice()) {
+                // Para dispositivos móveis, tenta o app primeiro
+                const whatsappApp = `whatsapp://send?phone=${phone}&text=${encodedMessage}`;
+                const whatsappWeb = `https://wa.me/${phone}?text=${encodedMessage}`;
+                
+                // Tenta abrir o app, se falhar, abre a versão web
+                const link = document.createElement('a');
+                link.href = whatsappApp;
+                link.click();
+                
+                // Fallback para web após 2 segundos se o app não abrir
+                setTimeout(() => {
+                    window.open(whatsappWeb, '_blank');
+                }, 2000);
+            } else {
+                // Para desktop, abre direto a versão web
+                const whatsappWeb = `https://wa.me/${phone}?text=${encodedMessage}`;
+                window.open(whatsappWeb, '_blank');
+            }
         }
 
         // Enter key support for chat
@@ -767,23 +1403,33 @@ Via Landing Page Jubarthi`;
         // WhatsApp functions
         function openWhatsApp() {
             const message = "Olá! Vim através da landing page da Jubarthi e gostaria de falar com um especialista sobre os planos de marketing médico.";
-            const whatsappUrl = `https://wa.me/5513996136266?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+            openWhatsAppWithMessage(message);
         }
 
-        function openWhatsAppPlan(planName) {
-            const message = `Olá! Vim através da landing page da Jubarthi e tenho interesse no *${planName}*. Gostaria de conversar com um especialista.`;
-            const whatsappUrl = `https://wa.me/5513996136266?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+        function openWhatsAppDigitalBook() {
+            const message = "Olá! Vim através da landing page da Jubarthi e quero comprar o LIVRO DIGITAL - 'Chega de Fraude no Marketing Médico'. Pode me ajudar?";
+            openWhatsAppWithMessage(message);
+        }
+
+        function openWhatsAppPlan(planName, price, features) {
+            const message = `Olá! Vim através da landing page da Jubarthi e tenho interesse no plano:
+
+📋 *${planName}*
+💰 *Valor:* ${price}
+✅ *Inclui:* ${features}
+
+Gostaria de conversar com um especialista para saber mais detalhes e contratar.`;
+            
+            openWhatsAppWithMessage(message);
         }
 
         // FAQ functionality
         function toggleFAQ(button) {
             const content = button.querySelector('.faq-content');
-            const icon = button.querySelector('i');
+            const icon = button.querySelector('.faq-icon');
             
-            content.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
+            content.classList.toggle('show');
+            icon.classList.toggle('rotated');
         }
 
         // Scroll animations
@@ -829,17 +1475,6 @@ Via Landing Page Jubarthi`;
                 addChatMessage(chatMessages[1]);
             }, 2000);
         });
-
-        // Preload images
-        function preloadImages() {
-            const images = ['livro.png', 'logo.png'];
-            images.forEach(src => {
-                const img = new Image();
-                img.src = src;
-            });
-        }
-
-        preloadImages();
     </script>
 </body>
 </html>
